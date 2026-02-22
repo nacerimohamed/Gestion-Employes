@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
+import { store } from './store';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './index.css'; // <-- Import du style global
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
