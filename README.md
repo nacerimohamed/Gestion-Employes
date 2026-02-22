@@ -4,6 +4,7 @@ Application web développée avec **React** et **Redux Toolkit** permettant de g
 
 Les données sont chargées automatiquement depuis une API REST via une action asynchrone (Thunk).
 
+https://gestion-employes-tau.vercel.app/
 ---
 
 ## 🚀 Fonctionnalités
