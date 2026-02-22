@@ -1,296 +1,138 @@
-# ✈️ JETEX — Application de Gestion des Vols
+# 👥 Application de Gestion des Employés avec Redux
 
-Application web moderne permettant la recherche de vols, la gestion des services et la facturation en temps réel.
+Application web développée avec **React** et **Redux Toolkit** permettant de gérer une liste d'employés (ajout, modification, suppression).
+
+Les données sont chargées automatiquement depuis une API REST via une action asynchrone (Thunk).
+
+https://gestion-employes-tau.vercel.app/
+---
+
+## 🚀 Fonctionnalités
+
+✅ Ajouter un nouvel employé (numéro, nom, prénom, date de naissance, adresse)  
+✅ Afficher la liste des employés sous forme de cartes  
+✅ Supprimer un employé  
+✅ Modifier un employé via un formulaire modal  
+✅ Chargement automatique des employés depuis une API  
+✅ Interface moderne et responsive  
 
 ---
 
-## 📋 Table des Matières
-- [Description](#description)
-- [Fonctionnalités](#fonctionnalités)
-- [Technologies Utilisées](#technologies-utilisées)
-- [Structure du Projet](#structure-du-projet)
-- [Installation](#installation)
-- [Guide d’Utilisation](#guide-dutilisation)
-- [Architecture Redux](#architecture-redux)
-- [API](#api)
-- [Tests](#tests)
-- [Déploiement](#déploiement)
-- [Évaluation](#évaluation)
-- [Auteur](#auteur)
-- [Licence](#licence)
+## 🛠️ Technologies utilisées
+
+- React (Create React App ou Vite)
+- Redux Toolkit
+- React-Redux
+- Axios
+- CSS personnalisé
 
 ---
 
-## 📝 Description
+## 📋 Prérequis
 
-JETEX est une application web développée dans le cadre du module :
-
-**Module 204 — Développement Frontend 2**
-
-Elle permet de :
-- Rechercher des vols  
-- Ajouter des services personnalisés  
-- Générer une facturation automatique  
-
-### 🎓 Contexte Pédagogique
-
-| Élément        | Détail                        |
-|----------------|-------------------------------|
-| Établissement  | ISTA Ouarzazate               |
-| Filière        | Développement Digital         |
-| Groupe         | DEVOWFS201                    |
-| Module         | 204 — Développement Frontend 2|
-| Formateur      | GAHI SAID                     |
-| Type           | Contrôle Continu N°03         |
+- Node.js (v14 ou supérieure)
+- npm ou yarn
 
 ---
 
-## ✨ Fonctionnalités
+## ⚙️ Installation
 
-### ✈️ Gestion des Vols (6 pts)
-- Recherche par ville départ / arrivée  
-- Tableau interactif des vols  
-- Infos complètes : numéro, villes, date, heure, prix  
-- Images avions  
-- Filtrage dynamique  
+### 1️⃣ Cloner le projet
 
-### 🧳 Gestion des Services (3 pts)
-Services disponibles :
-
-| Service | Prix |
-|---------|------|
-| 🍽️ Repas | +200 MAD |
-| 🧳 Bagages supplémentaires | +500 MAD |
-| 💺 Siège premium | +1000 MAD |
-| 📶 Wifi | +150 MAD |
-
-Fonctionnalités :
-- Sélection services par vol  
-- Mise à jour Redux en temps réel  
-
-### 🧾 Facturation (3 pts)
-- Récapitulatif du vol  
-- Liste des services  
-- Calcul automatique du total  
-- Confirmation avec message succès  
-- Animation confetti  
-
-### 🎨 Expérience Utilisateur
-- Responsive Design  
-- Animations fluides  
-- Gestion Loading & Errors  
-- UI moderne et intuitive  
-
----
-
-## 🛠 Technologies Utilisées
-
-**Frontend :**  
-- React 18  
-- Redux Toolkit  
-- React Redux  
-- Framer Motion  
-- CSS3  
-
-**Outils :**  
-- Create React App  
-- ESLint  
-- Prettier  
-- Git  
-
----
-
-## 📁 Structure du Projet
-
-jetex-vols/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── FlightSearch.js      # Recherche de vols
-│   │   ├── FlightTable.js        # Tableau des vols
-│   │   ├── FlightTable.css       # Styles du tableau
-│   │   ├── ServiceForm.js        # Formulaire de services
-│   │   ├── ServiceForm.css       # Styles du formulaire
-│   │   ├── Invoice.js            # Facturation
-│   │   └── Invoice.css           # Styles de facturation
-│   ├── redux/
-│   │   ├── store.js              # Configuration Redux
-│   │   ├── flightSlice.js        # Slice des vols
-│   │   └── servicesSlice.js      # Slice des services
-│   ├── constants/
-│   │   └── images.js             # Constantes d'images
-│   ├── App.js                     # Composant principal
-│   ├── App.css                     # Styles globaux
-│   ├── index.js                    # Point d'entrée
-│   └── index.css                    # Styles de base
-├── package.json                    # Dépendances
-├── README.md                       # Documentation
-└── .gitignore                      # Fichiers ignorés
-
-
-
-
----
-
-## 🚀 Installation
-
-### 📌 Prérequis
-- Node.js v14+  
-- npm v6+  
-
-### ⚡ Installation
 ```bash
-git clone https://github.com/votre-username/jetex-vols.git
-cd jetex-vols
+git clone https://github.com/votre-compte/gestion-employes-redux.git
+cd gestion-employes-redux
+```
+
+### 2️⃣ Installer les dépendances
+
+```bash
 npm install
+```
+
+ou
+
+```bash
+yarn install
+```
+
+### 3️⃣ Lancer l'application
+
+```bash
 npm start
+```
 
+ou
 
+```bash
+yarn start
+```
 
-Application disponible sur :
+L'application sera accessible sur :
 
+```
 http://localhost:3000
+```
 
-📖📖 Guide d’Utilisation
+---
 
-1️⃣ Recherche de Vol
+## 🌐 API utilisée
 
-Entrer ville départ
+L'API utilisée est :
 
-Entrer ville arrivée
+```
+https://serverApi/employes
+```
 
-Cliquer Rechercher
+⚠️ Pensez à modifier l’URL dans le fichier :
 
-2️⃣ Sélection Vol
+```
+src/store/employeesSlice.js
+```
 
-Cliquer sur Sélectionner
+si nécessaire.
 
-Redirection vers services
+---
 
-3️⃣ Ajout Services
+## 📂 Structure du projet
 
-Cocher services
+```
+src/
+│
+├── components/
+│   ├── AddEmployee.js
+│   ├── ListEmployee.js
+│   └── UpdateEmployee.js
+│
+├── store/
+│   ├── index.js
+│   └── employeesSlice.js
+│
+├── App.js
+├── index.js
+└── index.css
+```
 
-Voir total en temps réel
+---
 
-Confirmer
+## 📸 Captures d'écran
 
-4️⃣ Facturation
+Ajoutez ici vos images :
 
-Vérifier facture
+```markdown
+![Aperçu](./assets/screenshot.png)
+```
 
-Confirmer réservation
+---
 
-🏗 Architecture Redux
+## 👨‍🏫 Auteur
 
-Store :
+Formateur : A. BENDAOUD  
 
-flights: flightSlice
+Projet réalisé dans le cadre d'une formation sur Redux.
 
-services: servicesSlice
+---
 
-Flight Slice :
+## 📄 Licence
 
-fetchFlights
-
-setSearchCriteria
-
-filterFlights
-
-selectFlight
-
-updateFlightServices
-
-Services Slice :
-
-toggleService
-
-resetServices
-
-confirmerReservation
-
-🌐 API
-
-Endpoint :
-
-https://gahi-said.com/apis/vols.php
-
-
-Format :
-
-{
-  "vols": [
-    {
-      "id": "F123",
-      "villeDepart": "Rabat",
-      "villeArrivee": "Dubai",
-      "date": "25-12-2024",
-      "prix": 2500
-    }
-  ]
-}
-
-🧪 Tests Manuels
-| Fonction  | Test          | Résultat    |
-| --------- | ------------- | ----------- |
-| Recherche | Rabat → Dubai | Filtrage OK |
-| Sélection | Click vol     | OK          |
-| Services  | 2 services    | Prix OK     |
-| Facture   | Confirmation  | Succès OK   |
-
-
-
-
-📱 Responsive Design
-
-| Device   | Taille       |
-| -------- | ------------ |
-| Mobile   | < 768px      |
-| Tablette | 768 — 1024px |
-| Desktop  | > 1024px     |
-
-
-
-
-🚀 Déploiement
-
-npm run build
-
-
-
-Plateformes :
-
-Vercel
-
-Netlify
-
-GitHub Pages
-
-📊 Évaluation
-| Critère           | Note |
-| ----------------- | ---- |
-| Vols              | 6/6  |
-| Services          | 3/3  |
-| Facturation       | 3/3  |
-| Redux             | 4/4  |
-| UI/UX             | 3/3  |
-| Documentation     | 1/1  |
-| **Total : 20/20** |      |
-
-
-⭐ Total : 20/20
-
-👨‍💻 Auteur
-
-GAHI SAID
-Formateur Développement Digital
-ISTA Ouarzazate
-
-📄 Licence
-
-Projet pédagogique — ISTA Ouarzazate
-© 2024 Tous droits réservés
-
-🙏 Remerciements
+Ce projet est libre d'utilisation à des fins pédagogiques.
