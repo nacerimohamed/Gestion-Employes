@@ -1,145 +1,137 @@
-# ✈️ JETEX — Application de Gestion des Vols
+# 👥 Application de Gestion des Employés avec Redux
 
-Application web moderne permettant la recherche de vols, la gestion des services et la facturation en temps réel.
+Application web développée avec **React** et **Redux Toolkit** permettant de gérer une liste d'employés (ajout, modification, suppression).
 
----
-
-## 📋 Table des Matières
-- [Description](#description)
-- [Fonctionnalités](#fonctionnalités)
-- [Technologies Utilisées](#technologies-utilisées)
-- [Structure du Projet](#structure-du-projet)
-- [Installation](#installation)
-- [Guide d’Utilisation](#guide-dutilisation)
-- [Architecture Redux](#architecture-redux)
-- [API](#api)
-- [Tests](#tests)
-- [Déploiement](#déploiement)
-- [Évaluation](#évaluation)
-- [Auteur](#auteur)
-- [Licence](#licence)
+Les données sont chargées automatiquement depuis une API REST via une action asynchrone (Thunk).
 
 ---
 
-## 📝 Description
+## 🚀 Fonctionnalités
 
-JETEX est une application web développée dans le cadre du module :
-
-**Module 204 — Développement Frontend 2**
-
-Elle permet de :
-- Rechercher des vols  
-- Ajouter des services personnalisés  
-- Générer une facturation automatique  
-
-### 🎓 Contexte Pédagogique
-
-| Élément        | Détail                        |
-|----------------|-------------------------------|
-| Établissement  | ISTA Ouarzazate               |
-| Filière        | Développement Digital         |
-| Groupe         | DEVOWFS201                    |
-| Module         | 204 — Développement Frontend 2|
-| Formateur      | GAHI SAID                     |
-| Type           | Contrôle Continu N°03         |
+✅ Ajouter un nouvel employé (numéro, nom, prénom, date de naissance, adresse)  
+✅ Afficher la liste des employés sous forme de cartes  
+✅ Supprimer un employé  
+✅ Modifier un employé via un formulaire modal  
+✅ Chargement automatique des employés depuis une API  
+✅ Interface moderne et responsive  
 
 ---
 
-## ✨ Fonctionnalités
+## 🛠️ Technologies utilisées
 
-### ✈️ Gestion des Vols (6 pts)
-- Recherche par ville départ / arrivée  
-- Tableau interactif des vols  
-- Infos complètes : numéro, villes, date, heure, prix  
-- Images avions  
-- Filtrage dynamique  
-
-### 🧳 Gestion des Services (3 pts)
-Services disponibles :
-
-| Service | Prix |
-|---------|------|
-| 🍽️ Repas | +200 MAD |
-| 🧳 Bagages supplémentaires | +500 MAD |
-| 💺 Siège premium | +1000 MAD |
-| 📶 Wifi | +150 MAD |
-
-Fonctionnalités :
-- Sélection services par vol  
-- Mise à jour Redux en temps réel  
-
-### 🧾 Facturation (3 pts)
-- Récapitulatif du vol  
-- Liste des services  
-- Calcul automatique du total  
-- Confirmation avec message succès  
-- Animation confetti  
-
-### 🎨 Expérience Utilisateur
-- Responsive Design  
-- Animations fluides  
-- Gestion Loading & Errors  
-- UI moderne et intuitive  
+- React (Create React App ou Vite)
+- Redux Toolkit
+- React-Redux
+- Axios
+- CSS personnalisé
 
 ---
 
-## 🛠 Technologies Utilisées
+## 📋 Prérequis
 
-**Frontend :**  
-- React 18  
-- Redux Toolkit  
-- React Redux  
-- Framer Motion  
-- CSS3  
-
-**Outils :**  
-- Create React App  
-- ESLint  
-- Prettier  
-- Git  
+- Node.js (v14 ou supérieure)
+- npm ou yarn
 
 ---
 
-## 📁 Structure du Projet
+## ⚙️ Installation
 
-jetex-vols/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── FlightSearch.js      # Recherche de vols
-│   │   ├── FlightTable.js        # Tableau des vols
-│   │   ├── FlightTable.css       # Styles du tableau
-│   │   ├── ServiceForm.js        # Formulaire de services
-│   │   ├── ServiceForm.css       # Styles du formulaire
-│   │   ├── Invoice.js            # Facturation
-│   │   └── Invoice.css           # Styles de facturation
-│   ├── redux/
-│   │   ├── store.js              # Configuration Redux
-│   │   ├── flightSlice.js        # Slice des vols
-│   │   └── servicesSlice.js      # Slice des services
-│   ├── constants/
-│   │   └── images.js             # Constantes d'images
-│   ├── App.js                     # Composant principal
-│   ├── App.css                     # Styles globaux
-│   ├── index.js                    # Point d'entrée
-│   └── index.css                    # Styles de base
-├── package.json                    # Dépendances
-├── README.md                       # Documentation
-└── .gitignore                      # Fichiers ignorés
+### 1️⃣ Cloner le projet
 
+```bash
+git clone https://github.com/votre-compte/gestion-employes-redux.git
+cd gestion-employes-redux
+```
 
+### 2️⃣ Installer les dépendances
 
+```bash
+npm install
+```
+
+ou
+
+```bash
+yarn install
+```
+
+### 3️⃣ Lancer l'application
+
+```bash
+npm start
+```
+
+ou
+
+```bash
+yarn start
+```
+
+L'application sera accessible sur :
+
+```
+http://localhost:3000
+```
 
 ---
 
-## 🚀 Installation
+## 🌐 API utilisée
 
-### 📌 Prérequis
-- Node.js v14+  
-- npm v6+  
+L'API utilisée est :
 
+```
+https://serverApi/employes
+```
 
+⚠️ Pensez à modifier l’URL dans le fichier :
 
+```
+src/store/employeesSlice.js
+```
 
+si nécessaire.
+
+---
+
+## 📂 Structure du projet
+
+```
+src/
+│
+├── components/
+│   ├── AddEmployee.js
+│   ├── ListEmployee.js
+│   └── UpdateEmployee.js
+│
+├── store/
+│   ├── index.js
+│   └── employeesSlice.js
+│
+├── App.js
+├── index.js
+└── index.css
+```
+
+---
+
+## 📸 Captures d'écran
+
+Ajoutez ici vos images :
+
+```markdown
+![Aperçu](./assets/screenshot.png)
+```
+
+---
+
+## 👨‍🏫 Auteur
+
+Formateur : A. BENDAOUD  
+
+Projet réalisé dans le cadre d'une formation sur Redux.
+
+---
+
+## 📄 Licence
+
+Ce projet est libre d'utilisation à des fins pédagogiques.
