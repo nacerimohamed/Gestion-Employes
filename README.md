@@ -6,7 +6,9 @@ Les données sont chargées automatiquement depuis une API REST via une action a
 
 https://gestion-employes-tau.vercel.app/
 ---
+## 📸 Aperçu de l'application
 
+![Aperçu Application](Capturev.PNG)
 ## 🚀 Fonctionnalités
 
 ✅ Ajouter un nouvel employé (numéro, nom, prénom, date de naissance, adresse)  
